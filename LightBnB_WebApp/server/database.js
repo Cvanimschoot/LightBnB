@@ -64,8 +64,7 @@ exports.getUserWithId = getUserWithId;
  * @param {{name: string, password: string, email: string}} user
  * @return {Promise<{}>} A promise to the user.
  */
-const addUser =  function(user) {
-  
+const addUser =  function(user) { 
   return pool
  .query(`INSERT INTO users (name, email, password) 
          VALUES ($1, $2, $3)`,
@@ -76,13 +75,6 @@ const addUser =  function(user) {
   .catch((err) => {
     console.log(err.message);
   });
-  
-  /*
-  const userId = Object.keys(users).length + 1;
-  user.id = userId;
-  users[userId] = user;
-  return Promise.resolve(user);
-  */
 }
 exports.addUser = addUser;
 
@@ -109,8 +101,6 @@ const getAllReservations = function(guest_id, limit = 10) {
   .catch((err) => {
     console.log(err.message);
   });
-  
-  //return getAllProperties(null, 2);
 }
 exports.getAllReservations = getAllReservations;
 
@@ -191,9 +181,30 @@ exports.getAllProperties = getAllProperties;
  * @return {Promise<{}>} A promise to the property.
  */
 const addProperty = function(property) {
+  
+  return pool
+  .query(`INSERT INTO properties 
+          (owner_id, title, description, thumbnail_photo_url, 
+          cover_photo_url, cost_per_night, street, city, province, 
+          post_code, country, parking_spaces, number_of_bathrooms,
+          number_of_bedrooms) 
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
+         [property.owner_id, property.title, property.description,
+         property.thumbnail_photo_url, property.cover_photo_url,
+         property.cost_per_night, property.street, property.city, 
+         property.province, property.post_code, property.country, property.parking_spaces, property.number_of_bathrooms, property.number_of_bedrooms])
+   .then((result) => {
+     return result.rows;
+   })
+   .catch((err) => {
+     console.log(err.message);
+   });
+  
+  /*
   const propertyId = Object.keys(properties).length + 1;
   property.id = propertyId;
   properties[propertyId] = property;
   return Promise.resolve(property);
+  */
 }
 exports.addProperty = addProperty;
