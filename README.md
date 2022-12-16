@@ -4,23 +4,29 @@ A simple multi-page Airbnb clone that uses a server-side Javascript to display t
 
 ## Final Product
 
-The registration page. The user can register an account so they can start creating short URLs. Login page is similar.
+This is the landing page. Here you can see all property listings. Nav bar navigation is also at the top of the page with the ability to log in and out, as well as narrow the properties list based around search parameters.
 
-!["Screenshot of registration page"](https://github.com/Cvanimschoot/tinyapp/blob/master/docs/register_page.png?raw=true)
+!["Screenshot of landing page"](https://github.com/Cvanimschoot/LightBnB/blob/master/docs/Landing_Page.png?raw=true)
 
-This is the URLs page. Here, once a user is logged in, they will be able to see the URLs they have stored. The stored URLs will also showcase what their short URL is. The user, if the URLs belong to them, can edit and delete the URLs.
+This is the login page. Users can login to the webpage and create their own listings, as well as see their currently reservered listings.
 
-!["Screenshot of URLs page"](https://github.com/Cvanimschoot/tinyapp/blob/master/docs/urls_page.png?raw=true)
+!["Screenshot of login page"](https://github.com/Cvanimschoot/LightBnB/blob/master/docs/Login_Page.png?raw=true)
+
+The search page is used to be able to narrow the list of properties down based on criteria the user may want to look for.
+
+!["Screenshot of Search page"](https://github.com/Cvanimschoot/LightBnB/blob/master/docs/Search_Page.png?raw=true)
 
 ## Dependencies
 
-- Node.js
-- Express
-- EJS
-- bcryptjs
+- bcrypt
+- body-parser
 - cookie-session
+- express
+- nodemon
+- pg
 
 ## Getting Started
 
 - Install all dependencies (using the `npm install` command).
-- Run the development web server using the `node express_server.js` command.
+- Run the development web server using the `npm run local` command.
+- Web server should be located at: http://localhost:3000.
